@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Picker</title>
     <link rel="stylesheet" href="./input.css">
-    <link href="/dist/output.css" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet">
     <script defer src="./index.js"></script>
 </head>
 
@@ -15,8 +15,8 @@
 
     Color Scheme Generator
     </h1>
-    <main class="bg-slate-300">
-        <form id="colorForm" class="max-w-md mt-0 mb-4 mx-[auto] p-4 border-2 border-slate-900 flex justify-between">
+    <main class="">
+        <form id="colorForm" class="max-w-md mt-0 mb-4 mx-[auto] p-4 border-2 border-slate-900 flex flex-col gap-2 justify-center items-center">
             <input type="color" name="seedColor" id="seedColor">
             <select name="mode" id="mode">
                 <option value="monochrome">monochrome</option>
@@ -30,8 +30,8 @@
             </select>
             <button id="submitBtn" class="px-3 py-1 bg-slate-500 rounded-full">Get Color Scheme</button>
         </form>
-        <div id="scheme_container">
-            
+        <div id="scheme_container" class="max-w-xl p-2 border-solid border-2 border-slate-900 flex flex-col">
+            colors here
         </div>
     </main>
     <footer >

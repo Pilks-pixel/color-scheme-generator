@@ -1,17 +1,9 @@
-// First Function
-const firstType = (person: string) => {
-	console.log(`Hello ${person} !`);
-};
-
-firstType("Pete");
-
-
 
 // Form Functions
 const selectedColor = (e: Event) => {
 	e.preventDefault();
 	const colorPickerTarget = e.target as HTMLInputElement;
-	console.log(colorPickerTarget.value);
+	console.log(colorPickerTarget.value.slice(1));
 };
 
 const handleSubmit = (e: Event) => {
@@ -19,7 +11,7 @@ const handleSubmit = (e: Event) => {
 	const colorPickerTarget = e.target as HTMLFormElement;
 	const modeSelector = colorPickerTarget.mode.value as HTMLInputElement;
 	const colorSelected = colorPickerTarget.seedColor.value.slice(
-		2
+		1
 	) as HTMLInputElement;
 
 
@@ -29,17 +21,24 @@ const handleSubmit = (e: Event) => {
 		.then(res => res.json())
 		.then((data) => {
             const scheme = data.colors
-            console.log(scheme)
+			const schemeContainer = document.getElementById("scheme_container");
+			
+            const schemeArr : [] = scheme.map((c: any, index : string)  => {
+				return `<div id="colorPallet${index}"  class="p-4 w-full" style = "background-color:${c.hex.value};">${c.hex.value}</div>`;	
+					
+				
+			});
+			console.table(schemeArr);
+			schemeContainer.innerHTML = schemeArr.join("");
 
-            scheme.map((c: any)  => {
-							const colorContainer = document.createElement("div");
-							const schemeContainer =
-								document.getElementById("scheme_container");
+			
 
-							colorContainer.classList.add(`bg-[${c.hex.value}]`, "w-1/6");
-							schemeContainer.appendChild(colorContainer);
-						});
         });
+};
+
+// Color Pallet Functions
+const handleClick = (e: Event) => {
+	console.log(e.target)
 };
 
 // Event Listeners
