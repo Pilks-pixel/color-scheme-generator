@@ -17,7 +17,14 @@ var handleSubmit = function (e) {
     fetch("https://www.thecolorapi.com/scheme?hex=".concat(colorSelected, "&mode=").concat(modeSelector, "&count=6"))
         .then(function (res) { return res.json(); })
         .then(function (data) {
-        console.log(data.colors);
+        var scheme = data.colors;
+        console.log(scheme);
+        scheme.map(function (c) {
+            var colorContainer = document.createElement("div");
+            var schemeContainer = document.getElementById("scheme_container");
+            colorContainer.classList.add("bg-[".concat(c.hex.value, "]"), "w-1/6");
+            schemeContainer.appendChild(colorContainer);
+        });
     });
 };
 // Event Listeners

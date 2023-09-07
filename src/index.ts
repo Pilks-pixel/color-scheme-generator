@@ -5,6 +5,8 @@ const firstType = (person: string) => {
 
 firstType("Pete");
 
+
+
 // Form Functions
 const selectedColor = (e: Event) => {
 	e.preventDefault();
@@ -25,9 +27,18 @@ const handleSubmit = (e: Event) => {
 		`https://www.thecolorapi.com/scheme?hex=${colorSelected}&mode=${modeSelector}&count=6`
 	)
 		.then(res => res.json())
-		.then(data => {
-            console.log(data.colors)
-            
+		.then((data) => {
+            const scheme = data.colors
+            console.log(scheme)
+
+            scheme.map((c: any)  => {
+							const colorContainer = document.createElement("div");
+							const schemeContainer =
+								document.getElementById("scheme_container");
+
+							colorContainer.classList.add(`bg-[${c.hex.value}]`, "w-1/6");
+							schemeContainer.appendChild(colorContainer);
+						});
         });
 };
 
