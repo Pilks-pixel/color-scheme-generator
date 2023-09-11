@@ -3,11 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-    * {
-        @apply box-border
-    }
+	* {
+		@apply box-border;
+	}
 
 	body {
 		@apply font-body text-center bg-gray-300 m-0;
+	}
+}
+
+@layer components {
+	.tooltip {
+		position: relative;
+	}
+
+	.tooltip::after {
+		content: "Copy " attr(data-value) " to clipboard ";
+		background: antiquewhite;
+		padding: 0.25em 0.75em;
+		border-radius: 0.25rem;
+		width: fit-content;
+		position: absolute;
+		left: 30%;
+		top: 25%;
+		transform: scale(0);
+		transition: transform ease-out 500ms;
+		cursor: grab;
+	}
+
+	.tooltip:hover::after {
+		transform: scale(1);
+	}
+
+	.tooltip:active::after {
+		background: #6eb9f7;
+		background-size: 100%;
+		transition: all 0s;
 	}
 }

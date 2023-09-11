@@ -13,15 +13,11 @@ const getSchemeColors = (color: HTMLInputElement, mode: HTMLInputElement) => {
 };
 
 const setNewScheme = (scheme : {}[]) => {
-	const colorElements = scheme.map((c: any, index: number) => {
-		return `<div id="colorPallet${index}"  class="p-4 w-full" style="background-color:${c.hex.value};">${c.hex.value}</div>`;
+	const colorElements = scheme.map((c: any) => {
+		return `<div data-value="${c.hex.value}"  class="p-4 w-full tooltip .tooltip:active"  style="background-color:${c.hex.value};">${c.hex.value}</div>`;
 	});
 
-   schemeContainer.innerHTML = colorElements.join("");
-   const colorPallet = document.getElementById("colorPallet1");
-		colorPallet.addEventListener("click", handleClick);
-
-
+	schemeContainer.innerHTML = colorElements.join("");
 }
 
 const handleSubmit = (e: Event) => {
@@ -36,12 +32,13 @@ const handleSubmit = (e: Event) => {
 };
 
 
-
-
 // Color Pallet Functions
  function handleClick(e: Event) {
 	e.preventDefault();
-	console.log(e.currentTarget);
+	const schemeElement = e.target as HTMLElement;
+	const schemeColor = schemeElement.dataset.value
+	console.log(schemeColor)
+	navigator.clipboard.writeText(schemeColor);
 };
 
 // Event Listeners
@@ -49,6 +46,10 @@ const colorPicker = document.getElementById("seedColor") as HTMLInputElement;
 const colorForm = document.getElementById("colorForm") as HTMLFormElement;
 const schemeContainer = document.getElementById("scheme_container");
 
+
 colorPicker.addEventListener("change", selectedColor);
 colorForm.addEventListener("submit", handleSubmit);
+schemeContainer.addEventListener("click", handleClick);
+
+
 

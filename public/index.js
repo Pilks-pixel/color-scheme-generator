@@ -10,12 +10,10 @@ var getSchemeColors = function (color, mode) {
         .then(function (data) { return setNewScheme(data.colors); });
 };
 var setNewScheme = function (scheme) {
-    var colorElements = scheme.map(function (c, index) {
-        return "<div id=\"colorPallet".concat(index, "\"  class=\"p-4 w-full\" style=\"background-color:").concat(c.hex.value, ";\">").concat(c.hex.value, "</div>");
+    var colorElements = scheme.map(function (c) {
+        return "<div data-value=\"".concat(c.hex.value, "\"  class=\"p-4 w-full tooltip .tooltip:active\"  style=\"background-color:").concat(c.hex.value, ";\">").concat(c.hex.value, "</div>");
     });
     schemeContainer.innerHTML = colorElements.join("");
-    var colorPallet = document.getElementById("colorPallet1");
-    colorPallet.addEventListener("click", handleClick);
 };
 var handleSubmit = function (e) {
     e.preventDefault();
@@ -27,7 +25,10 @@ var handleSubmit = function (e) {
 // Color Pallet Functions
 function handleClick(e) {
     e.preventDefault();
-    console.log(e.currentTarget);
+    var schemeElement = e.target;
+    var schemeColor = schemeElement.dataset.value;
+    console.log(schemeColor);
+    navigator.clipboard.writeText(schemeColor);
 }
 ;
 // Event Listeners
@@ -36,4 +37,5 @@ var colorForm = document.getElementById("colorForm");
 var schemeContainer = document.getElementById("scheme_container");
 colorPicker.addEventListener("change", selectedColor);
 colorForm.addEventListener("submit", handleSubmit);
+schemeContainer.addEventListener("click", handleClick);
 //# sourceMappingURL=index.js.map
