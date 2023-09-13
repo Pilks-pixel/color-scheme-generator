@@ -8,7 +8,7 @@
 	}
 
 	body {
-		@apply font-body text-center bg-gray-300 m-0;
+		@apply font-body text-center m-0;
 	}
 }
 
@@ -20,6 +20,7 @@
 	.tooltip::after {
 		content: "Copy " attr(data-value) " to clipboard ";
 		background: antiquewhite;
+        color:black;
 		padding: 0.25em 0.75em;
 		border-radius: 0.25rem;
 		width: fit-content;

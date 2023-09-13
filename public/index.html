@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -7,18 +7,23 @@
     <title>Color Picker</title>
     <link rel="stylesheet" href="./input.css">
     <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script defer src="./index.js"></script>
 </head>
 
-<body>
-    <h1 class="text-3xl font-display font-bold">
+<body class="bg-gray-200 dark:bg-gray-700 dark:text-gray-300 transition-colors">
+    <header>
 
-    Color Scheme Generator
-    </h1>
+        <h1 class="text-3xl font-display font-bold">
+    
+        Color Scheme Generator
+        </h1>
+        <button id="toggle_btn" class="px-3 py-1 bg-slate-500 rounded-full"><i class='fa-regular fa-moon'></i></button>
+    </header>
     <main class="">
         <form id="colorForm" class="max-w-md mt-0 mb-4 mx-[auto] p-4 border-2 border-slate-900 flex flex-col gap-2 justify-center items-center">
             <input type="color" name="seedColor" id="seedColor">
-            <select name="mode" id="mode">
+            <select name="mode" id="mode" class="text-black">
                 <option value="monochrome">monochrome</option>
                 <option value="monochrome-light">monochrome-light</option>
                 <option value="monochrome-dark">monochrome-dark</option>
@@ -35,7 +40,7 @@
         </div>
     </main>
     <footer >
-        <h2 class="text-base text-rose-400 font-bold">
+        <h2 class="text-base text-rose-400 dark:text-yellow-300 font-bold">
             Designed With Love by Pilks-Pixel
         </h2>
     </footer>
