@@ -25,7 +25,8 @@
 		border-radius: 0.25rem;
 		width: fit-content;
 		position: absolute;
-		left: 30%;
+		left: 10%;
+        right: 10%;
 		top: 25%;
 		transform: scale(0);
 		transition: transform ease-out 500ms;
@@ -37,8 +38,31 @@
 	}
 
 	.tooltip:active::after {
+		content: "Copied " attr(data-value) " to clipboard ";
 		background: #6eb9f7;
 		background-size: 100%;
 		transition: all 0s;
 	}
+}
+
+@layer utilities {
+  .clamp {
+    font-size: "clamp(1.75rem, 5vw, 2.5rem)";
+  }
+
+  .text-gradient {
+    background: #f12711;  /* fallback for old browsers */
+    background: -wgoingebkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;
+	color: transparent;
+  }
+
+  .pink-gradient {
+    background: #800080;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffc0cb, #800080);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffc0cb, #800080); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;
+	color: transparent;
+  }
 }

@@ -6,7 +6,7 @@ var getSchemeColors = function (color, mode) {
 };
 var setNewScheme = function (scheme) {
     var colorElements = scheme.map(function (c) {
-        return "<div data-value=\"".concat(c.hex.value, "\"  class=\"p-4 w-full tooltip tooltip:active\"  style=\"background-color:").concat(c.hex.value, ";\">").concat(c.hex.value, "</div>");
+        return "<div data-value=\"".concat(c.hex.value, "\"  class=\"p-4 w-full tooltip tooltip:active md:flex md:flex-col md:justify-end\" style=\"background-color:").concat(c.hex.value, ";\"><span class=\"md:bg-white md:p-2 md:rounded md:text-black\">").concat(c.hex.value, "</span></div>");
     });
     schemeContainer.innerHTML = colorElements.join("");
 };

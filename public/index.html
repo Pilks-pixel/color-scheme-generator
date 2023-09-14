@@ -1,49 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Color Picker</title>
+		<link rel="stylesheet" href="./input.css" />
+		<link href="./dist/output.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+		<script defer src="./index.js"></script>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Picker</title>
-    <link rel="stylesheet" href="./input.css">
-    <link href="./dist/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <script defer src="./index.js"></script>
-</head>
-
-<body class="bg-gray-200 dark:bg-gray-700 dark:text-gray-300 transition-colors">
-    <header>
-
-        <h1 class="text-3xl font-display font-bold">
-    
-        Color Scheme Generator
-        </h1>
-        <button id="toggle_btn" class="px-3 py-1 bg-slate-500 rounded-full"><i class='fa-regular fa-moon'></i></button>
-    </header>
-    <main class="">
-        <form id="colorForm" class="max-w-md mt-0 mb-4 mx-[auto] p-4 border-2 border-slate-900 flex flex-col gap-2 justify-center items-center">
-            <input type="color" name="seedColor" id="seedColor">
-            <select name="mode" id="mode" class="text-black">
-                <option value="monochrome">monochrome</option>
-                <option value="monochrome-light">monochrome-light</option>
-                <option value="monochrome-dark">monochrome-dark</option>
-                <option value="analogic">analogic</option>
-                <option value="complement">complement</option>
-                <option value="analogic-complement">analogic-complement</option>
-                <option value="triad">triad</option>
-                <option value="quad">quad</option>
-            </select>
-            <button id="submitBtn" class="px-3 py-1 bg-slate-500 rounded-full">Get Color Scheme</button>
-        </form>
-        <div id="scheme_container" class="max-w-xl p-2 border-solid border-2 border-slate-900 flex flex-col">
-            colors here
-        </div>
-    </main>
-    <footer >
-        <h2 class="text-base text-rose-400 dark:text-yellow-300 font-bold">
-            Designed With Love by Pilks-Pixel
-        </h2>
-    </footer>
-</body>
-
+	<body
+		class="bg-gray-200 dark:bg-gray-700 dark:text-gray-300 transition-colors"
+	>
+		<header class="relative flex justify-end">
+			<button
+				id="toggle_btn"
+				class="m-4 px-3 py-2 bg-slate-500 rounded-full shadow-md border-gray-500 border-2 hover:pink-gradient hover:dark:text-gradient transition-colors"
+			>
+				<i class="fa-regular fa-moon"></i>
+			</button>
+		</header>
+		<main class="">
+			<h1
+				class="text-3xl font-display font-bold pink-gradient mx-auto mt-0 mb-8 dark:text-gradient"
+			>
+				Color Scheme Generator
+			</h1>
+			<form
+				id="colorForm"
+				class="max-w-lg mt-0 mb-4 mx-[auto] p-4 flex flex-wrap gap-6 justify-center items-center md:gap-3"
+			>
+				<div class="flex gap-3 justify-center">
+					<input
+						type="color"
+						value="#ff0000"
+						name="seedColor"
+						id="seedColor"
+						class="h-9 shadow-md rounded-sm border-gray-500 border-2"
+					/>
+					<select
+						name="mode"
+						id="mode"
+						class="h-9 px-3 py-1 bg-slate-500 shadow-md rounded-md border-gray-500 border-2 transition-colors"
+					>
+						<option value="monochrome">monochrome</option>
+						<option value="monochrome-light">monochrome-light</option>
+						<option value="monochrome-dark">monochrome-dark</option>
+						<option value="analogic">analogic</option>
+						<option value="complement">complement</option>
+						<option value="analogic-complement">analogic-complement</option>
+						<option value="triad">triad</option>
+						<option value="quad">quad</option>
+					</select>
+				</div>
+				<button
+					id="submitBtn"
+					class="px-3 py-1 shadow-md text-base bg-slate-500 rounded-md border-gray-500 border-2 hover:pink-gradient hover:shadow-rose-400 hover:dark:text-gradient hover:dark:shadow-yellow-700 hover:shadow-lg transition-all"
+				>
+					Get Color Scheme
+				</button>
+			</form>
+			<div
+				id="scheme_container"
+				class="max-w-2xl p-2 mx-auto mb-4 flex flex-col md:flex-row md:h-[400px]"
+			>
+				<div
+					data-value="#EF4444"
+					class="p-4 w-full tooltip tooltip:active bg-red-500 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#EF4444</span
+					>
+				</div>
+				<div
+					data-value="#F59E0B"
+					class="p-4 w-full tooltip tooltip:active bg-orange-400 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#F59E0B</span
+					>
+				</div>
+				<div
+					data-value="#FCD34D"
+					class="p-4 w-full tooltip tooltip:active bg-yellow-300 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#FCD34D</span
+					>
+				</div>
+				<div
+					data-value="#22C55E"
+					class="p-4 w-full tooltip tooltip:active bg-green-400 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#22C55E</span
+					>
+				</div>
+				<div
+					data-value="#3B82F6"
+					class="p-4 w-full tooltip tooltip:active bg-blue-500 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#3B82F6</span
+					>
+				</div>
+				<div
+					data-value="#8B5CF6"
+					class="p-4 w-full tooltip tooltip:active bg-purple-400 md:flex md:flex-col md:justify-end"
+				>
+					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+						>#8B5CF6</span
+					>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<h2 class="text-base text-rose-400 dark:text-yellow-700 font-bold">
+				Built With ♥️ by Pilks-Pixel
+			</h2>
+		</footer>
+	</body>
 </html>

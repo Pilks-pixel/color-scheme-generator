@@ -7,7 +7,7 @@ const getSchemeColors = (color: HTMLInputElement, mode: HTMLInputElement) => {
 
 const setNewScheme = (scheme: {}[]) => {
 	const colorElements = scheme.map((c: any) => {
-		return `<div data-value="${c.hex.value}"  class="p-4 w-full tooltip tooltip:active"  style="background-color:${c.hex.value};">${c.hex.value}</div>`;
+		return `<div data-value="${c.hex.value}"  class="p-4 w-full tooltip tooltip:active md:flex md:flex-col md:justify-end" style="background-color:${c.hex.value};"><span class="md:bg-white md:p-2 md:rounded md:text-black">${c.hex.value}</span></div>`;
 	});
 
 	schemeContainer.innerHTML = colorElements.join("");
@@ -41,7 +41,7 @@ const handleThemeToggle = () => {
 	currentTheme = localStorage.getItem("theme");
 
 	if (currentTheme === "light") {
-		enableDarkMode()
+		enableDarkMode();
 	} else {
 		enableLightMode();
 	}
@@ -51,28 +51,24 @@ const enableDarkMode = () => {
 	rootElement.add("dark");
 	localStorage.setItem("theme", "dark");
 	darkModeToggle.innerHTML = `<i class="fa-regular fa-sun"></i>`;
-
 };
 
 const enableLightMode = () => {
 	rootElement.remove("dark");
 	localStorage.setItem("theme", "light");
 	darkModeToggle.innerHTML = `<i class='fa-regular fa-moon'></i>`;
-
 };
-
 
 // Event Listeners
 const colorForm = document.getElementById("colorForm") as HTMLFormElement;
 const schemeContainer = document.getElementById("scheme_container");
 const darkModeToggle = document.getElementById(
 	"toggle_btn"
-	) as HTMLButtonElement;
-	
-	colorForm.addEventListener("submit", handleSubmit);
-	schemeContainer.addEventListener("click", handleClick);
-	darkModeToggle.addEventListener("click", handleThemeToggle);
+) as HTMLButtonElement;
+
+colorForm.addEventListener("submit", handleSubmit);
+schemeContainer.addEventListener("click", handleClick);
+darkModeToggle.addEventListener("click", handleThemeToggle);
 
 // Set Theme On Page Load
 currentTheme === "light" ? enableLightMode() : enableDarkMode();
-
