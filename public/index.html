@@ -18,7 +18,7 @@
 	>
 		<header class="relative flex justify-end">
 			<button
-				id="toggle_btn"
+				id="toggle_btn" aria-label="toggle dark mode"
 				class="m-4 px-3 py-2 bg-slate-500 rounded-full shadow-md border-gray-500 border-2 hover:pink-gradient hover:dark:text-gradient transition-colors"
 			>
 				<i class="fa-regular fa-moon"></i>
@@ -40,12 +40,16 @@
 						value="#ff0000"
 						name="seedColor"
 						id="seedColor"
+                        aria-label="Color picker"
 						class="h-9 shadow-md rounded-sm border-gray-500 border-2"
 					/>
 					<select
 						name="mode"
 						id="mode"
+                        aria-label="mode selection"
+                        aria-controls="scheme_container"
 						class="h-9 px-3 py-1 bg-slate-500 shadow-md rounded-md border-gray-500 border-2 transition-colors"
+
 					>
 						<option value="monochrome">monochrome</option>
 						<option value="monochrome-light">monochrome-light</option>
@@ -66,56 +70,58 @@
 			</form>
 			<div
 				id="scheme_container"
+                aria-live="polite"
+                aria-atomic="true"
 				class="max-w-2xl p-2 mx-auto mb-4 flex flex-col md:flex-row md:h-[400px]"
 			>
-				<div
+				<button
 					data-value="#EF4444"
-					class="p-4 w-full tooltip tooltip:active bg-red-500 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-red-500 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#EF4444</span
 					>
-				</div>
-				<div
+				</button>
+				<button
 					data-value="#F59E0B"
-					class="p-4 w-full tooltip tooltip:active bg-orange-400 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-orange-400 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#F59E0B</span
 					>
-				</div>
-				<div
+				</button>
+				<button
 					data-value="#FCD34D"
-					class="p-4 w-full tooltip tooltip:active bg-yellow-300 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-yellow-300 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#FCD34D</span
 					>
-				</div>
-				<div
+				</button>
+				<button
 					data-value="#22C55E"
-					class="p-4 w-full tooltip tooltip:active bg-green-400 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-green-400 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#22C55E</span
 					>
-				</div>
-				<div
+				</button>
+				<button
 					data-value="#3B82F6"
-					class="p-4 w-full tooltip tooltip:active bg-blue-500 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-blue-500 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#3B82F6</span
 					>
-				</div>
-				<div
+				</button>
+				<button
 					data-value="#8B5CF6"
-					class="p-4 w-full tooltip tooltip:active bg-purple-400 md:flex md:flex-col md:justify-end"
+					class="group p-4 w-full tooltip tooltip:active bg-purple-400 md:flex md:flex-col md:justify-end"
 				>
-					<span class="md:bg-white md:p-2 md:rounded md:text-black"
+					<span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400"
 						>#8B5CF6</span
 					>
-				</div>
+				</button>
 			</div>
 		</main>
 		<footer>

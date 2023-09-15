@@ -7,7 +7,7 @@ const getSchemeColors = (color: HTMLInputElement, mode: HTMLInputElement) => {
 
 const setNewScheme = (scheme: {}[]) => {
 	const colorElements = scheme.map((c: any) => {
-		return `<div data-value="${c.hex.value}"  class="p-4 w-full tooltip tooltip:active md:flex md:flex-col md:justify-end" style="background-color:${c.hex.value};"><span class="md:bg-white md:p-2 md:rounded md:text-black">${c.hex.value}</span></div>`;
+		return `<button data-value="${c.hex.value}"  class="p-4 w-full tooltip tooltip:active md:flex md:flex-col md:justify-end group" style="background-color:${c.hex.value};"><span class="md:bg-white md:p-2 md:rounded md:text-black group-focus:text-cyan-400 group-active:text-cyan-400">${c.hex.value}</span></button>`;
 	});
 
 	schemeContainer.innerHTML = colorElements.join("");
